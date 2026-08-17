@@ -145,8 +145,8 @@ export function GoogleAdsSection({ data = [], ciudades = [], keywords = [], proy
 
       <BreakdownInsightsAccordion
         items={mergeLegacyObservations(
-          (hallazgos || []).filter(h => String(h.seccion || '').toLowerCase() === 'google-ads'),
-          (observaciones || []).filter(o => String(o.seccion || '').toLowerCase() === 'google-ads')
+          (hallazgos || []).filter(h => String(h.seccion || '').toLowerCase() === 'google-ads-paid'),
+          (observaciones || []).filter(o => String(o.seccion || '').toLowerCase() === 'google-ads-paid')
         )}
         accent={ACCENT}
         label="Observaciones del desglose"
