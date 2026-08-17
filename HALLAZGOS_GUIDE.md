@@ -19,6 +19,7 @@ La estructura recomendada es:
 | botanera | 2026-07 | instagram | clave | Instagram fue el principal motor de exposición | | 1 |
 | botanera | 2026-07 | tiktok | clave | TikTok destacó por crecimiento de audiencia | | 1 |
 | botanera | 2026-07 | google-ads | clave | Video concentró el mayor volumen de visualizaciones | | 1 |
+| botanera | 2026-07 | google-ads-paid | clave | El desglose por tipo de red mostró eficiencia distinta en Display vs Video | | 1 |
 
 ### Valores válidos para `seccion`
 
@@ -30,6 +31,7 @@ La estructura recomendada es:
 - `tiktok`
 - `tiktok-paid`
 - `google-ads`
+- `google-ads-paid`
 - `hallazgos` (legacy/general)
 
 ### Valores válidos para `tipo`
@@ -70,6 +72,7 @@ Para que una observación aparezca en una plataforma, utiliza la misma `seccion`
 - `facebook-paid`
 - `instagram-paid`
 - `tiktok-paid`
+- `google-ads-paid`
 
 Si estás empezando a cargar nuevos análisis, recomiendo usar principalmente `Hallazgos`, porque ahí puedes distinguir explícitamente `clave`, `observacion` y `aprendizaje`.
 
@@ -102,11 +105,18 @@ Para distinguirlo de la parte orgánica utiliza `facebook-paid`, `instagram-paid
 
 ### Google Ads
 
-Se muestra el mismo patrón editorial al inicio de la sección:
+Se muestra el mismo patrón editorial al inicio de la sección (usando `google-ads`):
 
 - Hallazgo clave visible.
 - Botón para abrir el detalle.
 - Modal con Observaciones y Aprendizajes.
+
+Además, al final de la sección (en el acordeón de desglose, junto a las tablas de
+Proyecciones vs Real) aparece un segundo bloque de observaciones. Para que este
+bloque muestre contenido distinto al de arriba, usa `google-ads-paid` en `seccion`
+— igual que con `facebook-paid`, `instagram-paid` y `tiktok-paid`. Si solo cargas
+filas con `google-ads`, el bloque de abajo quedará vacío en vez de repetir lo de
+arriba.
 
 ### Sección final `Hallazgos & Conclusiones`
 
@@ -142,5 +152,7 @@ Para un reporte mensual completo, bastaría con cargar:
 - Lo mismo para Instagram y TikTok.
 - 1 fila `google-ads / clave`
 - 2–5 filas `google-ads / observacion` o `aprendizaje`
+- 1 fila `google-ads-paid / clave`
+- 2–5 filas `google-ads-paid / observacion` o `aprendizaje`
 
 No existe un límite técnico de bullets en el modal.
