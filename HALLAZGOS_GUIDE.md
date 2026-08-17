@@ -16,6 +16,8 @@ La estructura recomendada es:
 | botanera | 2026-07 | facebook-paid | clave | Paid Media elevó la escala sin perder eficiencia | | 1 |
 | botanera | 2026-07 | facebook-paid | observacion | | La inversión se concentró en campañas de interacción. | 2 |
 | botanera | 2026-07 | facebook-paid | aprendizaje | | Validar piezas y aprobaciones antes de activar pauta para aprovechar toda la ventana de inversión. | 3 |
+| botanera | 2026-07 | facebook-paid-desglose | clave | El desglose por campaña mostró mejor CPR en el bucket AON | | 1 |
+| botanera | 2026-07 | facebook-paid-desglose | observacion | | Las campañas de Mundial concentraron el mayor gasto del desglose. | 2 |
 | botanera | 2026-07 | instagram | clave | Instagram fue el principal motor de exposición | | 1 |
 | botanera | 2026-07 | tiktok | clave | TikTok destacó por crecimiento de audiencia | | 1 |
 | botanera | 2026-07 | google-ads | clave | Video concentró el mayor volumen de visualizaciones | | 1 |
@@ -26,10 +28,13 @@ La estructura recomendada es:
 - `overview`
 - `facebook`
 - `facebook-paid`
+- `facebook-paid-desglose`
 - `instagram`
 - `instagram-paid`
+- `instagram-paid-desglose`
 - `tiktok`
 - `tiktok-paid`
+- `tiktok-paid-desglose`
 - `google-ads`
 - `google-ads-paid`
 - `hallazgos` (legacy/general)
@@ -70,8 +75,11 @@ Para que una observación aparezca en una plataforma, utiliza la misma `seccion`
 - `tiktok`
 - `google-ads`
 - `facebook-paid`
+- `facebook-paid-desglose`
 - `instagram-paid`
+- `instagram-paid-desglose`
 - `tiktok-paid`
+- `tiktok-paid-desglose`
 - `google-ads-paid`
 
 Si estás empezando a cargar nuevos análisis, recomiendo usar principalmente `Hallazgos`, porque ahí puedes distinguir explícitamente `clave`, `observacion` y `aprendizaje`.
@@ -99,9 +107,12 @@ Aparece una tarjeta editorial antes de los KPI:
 
 ### Paid Media
 
-Al abrir el acordeón de `Paid Media`, aparece el mismo módulo editorial al final del contenido de Paid Media.
+Dentro del bloque de Paid Media hay en realidad **dos** módulos editoriales distintos, y cada uno lee una `seccion` distinta — no comparten contenido:
 
-Para distinguirlo de la parte orgánica utiliza `facebook-paid`, `instagram-paid` o `tiktok-paid` en `seccion`.
+1. **Tarjeta ejecutiva**, junto a la Inversión Total (arriba, al lado de "Resultados por objetivo"). Usa `facebook-paid`, `instagram-paid` o `tiktok-paid`.
+2. **Acordeón de desglose**, más abajo, justo antes de "Desglose por campañas". Usa `facebook-paid-desglose`, `instagram-paid-desglose` o `tiktok-paid-desglose`.
+
+Si solo cargas filas con `facebook-paid` (sin el sufijo `-desglose`), la tarjeta ejecutiva de arriba mostrará contenido pero el acordeón de abajo quedará vacío — ya no se copia automáticamente de uno a otro.
 
 ### Google Ads
 
@@ -149,7 +160,9 @@ Para un reporte mensual completo, bastaría con cargar:
 - 2–5 filas `facebook / observacion` o `aprendizaje`
 - 1 fila `facebook-paid / clave`
 - 2–5 filas `facebook-paid / observacion` o `aprendizaje`
-- Lo mismo para Instagram y TikTok.
+- 1 fila `facebook-paid-desglose / clave`
+- 2–5 filas `facebook-paid-desglose / observacion` o `aprendizaje`
+- Lo mismo para Instagram y TikTok (sustituyendo `facebook` por `instagram` o `tiktok`).
 - 1 fila `google-ads / clave`
 - 2–5 filas `google-ads / observacion` o `aprendizaje`
 - 1 fila `google-ads-paid / clave`
